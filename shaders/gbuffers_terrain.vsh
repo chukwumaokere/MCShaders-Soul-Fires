@@ -19,6 +19,7 @@
 #define ENTITY_EMISSIVE_SOUL 10090.0 //soul emissive blocks defined in block.properties
 
 varying vec4 color;
+varying vec4 soul_color;
 varying vec4 texcoord;
 
 varying vec4 normal;
@@ -187,6 +188,7 @@ if (istopv) {
 	#endif
 	
 	color = gl_Color;
+	//soul_color = gl_Color * 2;
 
 	//Fix colors on emissive blocks
 	if (mc_Entity.x == ENTITY_FIRE
@@ -194,6 +196,11 @@ if (istopv) {
 	|| mc_Entity.x == ENTITY_EMISSIVE){
 	normal.a = 0.6;	
 	color = vec4(1.0);
+	}
+
+	if (mc_Entity.x == ENTITY_EMISSIVE_SOUL){
+		normal.a = 0.6;
+		color = vec4(2.0);
 	}
 
 	if(mc_Entity.x == 10300.0) color = vec4(1.0); //fix lecterns
