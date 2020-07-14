@@ -329,6 +329,9 @@ screen.EMISSIVE_SCREEN.comment=Change the lighting color of blocks that emit lig
 option.emissive_R=red
 option.emissive_G=green
 option.emissive_B=blue
+option.emissive_R_S=red for soul items
+option.emissive_G_S=green for soul items
+option.emissive_B_S=blue for soul items 
 option.minlight=Minimum Light
 
 screen.REFLECTIONS_SCREEN=Reflections
