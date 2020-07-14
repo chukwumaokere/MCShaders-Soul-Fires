@@ -217,6 +217,22 @@ if (istopv) {
 
 		
 		//color = vec4(2.0);
+		/*--------------------------------*/
+		/*
+		gl_Position = ftransform();
+		#ifdef TAA
+			gl_Position.xy += offsets[framemod8] * gl_Position.w*texelSize;
+		#endif
+		normal = normalize(gl_NormalMatrix * gl_Normal);	
+		texcoord = (gl_TextureMatrix[0] * gl_MultiTexCoord0).xy;
+		vec2 lmcoord = (gl_TextureMatrix[1] * gl_MultiTexCoord1).xy;
+		//Emissive blocks lighting in order to fix lighting on particles
+		float torch_lightmap = 16.0-min(15.,(lmcoord.s-0.5/16.)*16.*16./15);
+		float fallof1 = clamp(1.0 - pow(torch_lightmap/16.0,4.0),0.0,1.0);
+		torch_lightmap = fallof1*fallof1/(torch_lightmap*torch_lightmap+1.0);
+		vec3 emissiveLightC = vec3(emissive_R_S,emissive_G_S,emissive_B_S)*torch_lightmap*300;
+		float finalminlight = (nightVision > 0.9)? 0.075 : minlight; //add nightvision support but make sure minlight is still adjustable.	
+		/*---------------------------------------------------------------------*/
 	}
 
 	if(mc_Entity.x == 10300.0) color = vec4(1.0); //fix lecterns
