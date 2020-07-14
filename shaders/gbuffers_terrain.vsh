@@ -16,7 +16,7 @@
 #define ENTITY_FIRE         10051.0
 #define ENTITY_LAVA   		10010.0
 #define ENTITY_EMISSIVE		10089.0 //emissive blocks defined in block.properties
-#define ENTITY_EMISSIVE_SOUL 10090.0
+#define ENTITY_EMISSIVE_SOUL 10090.0 //soul emissive blocks defined in block.properties
 
 varying vec4 color;
 varying vec4 texcoord;
