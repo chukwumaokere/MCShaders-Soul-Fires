@@ -188,7 +188,7 @@ if (istopv) {
 	#endif
 	
 	color = gl_Color;
-	//soul_color = gl_Color * 2;
+	soul_color = gl_Color * 3;
 
 	//Fix colors on emissive blocks
 	if (mc_Entity.x == ENTITY_FIRE
@@ -199,8 +199,17 @@ if (istopv) {
 	}
 
 	if (mc_Entity.x == ENTITY_EMISSIVE_SOUL){
+		//normal.a = 1.6;
 		normal.a = 0.6;
-		color = vec4(2.0);
+		
+		soul_color.r = 1;
+		soul_color.g = 255;
+		soul_color.b = 1;
+		//soul_color.a = 5;
+		
+		color = soul_color;
+		//color = soul_color * 5 ;
+		//color = color;
 	}
 
 	if(mc_Entity.x == 10300.0) color = vec4(1.0); //fix lecterns
