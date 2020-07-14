@@ -6,6 +6,9 @@
 #define composite2
 #include "shaders.settings"
 
+#define ENTITY_EMISSIVE		10089.0 
+#define ENTITY_EMISSIVE_SOUL 10090.0
+
 varying vec2 texcoord;
 varying vec3 lightColor;
 varying vec3 sunVec;
@@ -1009,6 +1012,9 @@ vec4 fragpos = gbufferProjectionInverse * (vec4(texcoord,Depth,1.0) * 2.0 - 1.0)
 	float c_emitted = dot((color.rgb),vec3(1.0,0.6,0.4))/2.0;
 	float emitted 		= emissive? clamp(c_emitted*c_emitted,0.0,1.0)*torch_lightmap : 0.0;
 	vec3 emissiveLightC = vec3(emissive_R,emissive_G,emissive_B);
+	//if (mc_Entity.x == ENTITY_EMISSIVE_SOUL){
+	//	emissiveLightC = vec3(emissive_R_S,emissive_G_S,emissive_B_S);
+	//}
 	/*------------------------------------------------------------------------------------------*/
 	
 	//Lighting and colors
