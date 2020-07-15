@@ -1011,9 +1011,13 @@ vec4 fragpos = gbufferProjectionInverse * (vec4(texcoord,Depth,1.0) * 2.0 - 1.0)
 	torch_lightmap = fallof1*fallof1/(torch_lightmap*torch_lightmap+1.0);
 	float c_emitted = dot((color.rgb),vec3(1.0,0.6,0.4))/2.0;
 	float emitted 		= emissive? clamp(c_emitted*c_emitted,0.0,1.0)*torch_lightmap : 0.0;
-	vec3 emissiveLightC = vec3(emissive_R,emissive_G,emissive_B);
+	vec3 emissiveLightC = vec3(emissive_R_S,emissive_G_S,emissive_B_S);
+	//vec3 emissiveLightC = vec3(emissive_R_S,emissive_G_S,emissive_B_S)*10;
+	//if(soul_item == true){
+		 //emissiveLightC = vec3(emissive_R_S,emissive_G_S,emissive_B_S)*10;
+	//}
 	//if (mc_Entity.x == ENTITY_EMISSIVE_SOUL){
-	//	emissiveLightC = vec3(emissive_R_S,emissive_G_S,emissive_B_S);
+	//	vec3 emissiveLightC = vec3(emissive_R_S,emissive_G_S,emissive_B_S)*10;
 	//}
 	/*------------------------------------------------------------------------------------------*/
 	

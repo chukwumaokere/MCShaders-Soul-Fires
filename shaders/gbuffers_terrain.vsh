@@ -28,6 +28,7 @@ attribute vec4 mc_Entity;
 attribute vec4 mc_midTexCoord;
 
 uniform vec3 cameraPosition;
+bool soul_item = false;
 
 uniform mat4 gbufferModelView;
 uniform mat4 gbufferModelViewInverse;
@@ -197,6 +198,7 @@ if (istopv) {
 	|| mc_Entity.x == ENTITY_EMISSIVE){
 	normal.a = 0.6;	
 	color = vec4(1.0);
+	soul_item = false;
 	}
 
 	if (mc_Entity.x == ENTITY_EMISSIVE_SOUL){
@@ -213,6 +215,7 @@ if (istopv) {
 		*/
 		//soul_color.b = 3;
 		color = soul_color;
+		soul_item = true;
 		//color = color;
 
 		
